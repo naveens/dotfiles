@@ -1,0 +1,15 @@
+/*
+
+!/.profile
+!/.bashrc
+!/.bash_profile
+
+!/.ssh
+/.ssh/*
+!/.ssh/config
+
+!/.ssh/config
+!/.gitconfig
+!/.gitignore*
+!/.pythonrc
+!/.pdbrc

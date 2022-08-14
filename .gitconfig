@@ -1,0 +1,4 @@
+[user]
+	email = nsivanandam@vmware.com
+[core]
+	excludesFile = /home/nsivanandam/.gitignore_global
