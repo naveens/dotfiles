@@ -27,6 +27,6 @@ fi
 unset rc
 
 # enable wayland for Qt applications; failback to X
-export QT_QPA_PLATFORM="wayland;xcb"
+#export QT_QPA_PLATFORM="wayland;xcb"
 
 . "$HOME/.cargo/env"
