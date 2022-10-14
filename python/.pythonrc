@@ -1,0 +1,40 @@
+#
+# ~/.pythonrc --ttp
+#     Persist command history at exit. Requires readline. Note that for the windows python,
+#     readline is available via pyreadline. Under cygwin, the PYTHONSTARTUP environment should
+#     be set to $(cygpath -m ~/.pythonrc). Using a mixed path (e.g., C:/cygwin64/home/xxx/.pythonrc)
+#     would allow the same startup script in the cygwin python and the windows python, if that's
+#     the preference. This code assumes the maximum history size is unlimited.
+#
+from os import path
+import atexit
+import readline
+import rlcompleter
+
+histPath = path.expanduser("~/.python_history")
+newCmdIndex = 0
+oldHistSize = 0
+if path.exists(histPath):
+    readline.read_history_file(histPath)
+    newCmdIndex = readline.get_current_history_length() + 1
+    oldHistSize = path.getsize(histPath)
+
+# If history file seems to have been updated by another python session, append commands
+# to it. Otherwise, overwrite the history file with the up-to-date command history cache.
+def save_history(histPath=histPath, newCmdIndex=newCmdIndex, oldHistSize=oldHistSize):
+    from collections import deque
+    from os import path
+    import readline
+    if path.exists(histPath) and oldHistSize < path.getsize(histPath):
+        cmds = deque()
+        for i in range(newCmdIndex, readline.get_current_history_length() + 1):
+            cmds.append(readline.get_history_item(i))
+        if len(cmds):
+            readline.clear_history()
+            readline.read_history_file(histPath)
+            for cmd in cmds:
+                readline.add_history(cmd)
+    readline.write_history_file(histPath)
+
+atexit.register(save_history)
+del oldHistSize, newCmdIndex, histPath, save_history, rlcompleter, readline, atexit, path
