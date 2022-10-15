@@ -247,6 +247,7 @@ nmap ga <Plug>(EasyAlign)
 " Section: fzf
 
 " Mapping selecting mappings
+nnoremap <silent> <c-p> :Files<CR>
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
@@ -284,6 +285,3 @@ autocmd VimEnter * nested
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
-
-"set t_ZH=[3m
-"set t_ZR=[23m
