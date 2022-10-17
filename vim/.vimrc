@@ -9,7 +9,7 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
-
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'notriddle/vim-gitcommit-markdown'
 
@@ -271,6 +271,16 @@ let g:python_highlight_all = 1
 " Section: vim-dispatch
 
 autocmd FileType plantuml let b:dispatch = 'plantuml %'
+
+" Section: coc-vim
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set invnumber signcolumn=number
 
 " Section: Sessions
 
