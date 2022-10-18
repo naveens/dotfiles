@@ -63,6 +63,9 @@ set_bash_prompt () {
 
     EXIT=$?
 
+    # Set window title
+    echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
+
     # set a fancy prompt (non-color, unless we know we "want" color)
     case "$TERM" in
         xterm-color) color_prompt=yes;;
