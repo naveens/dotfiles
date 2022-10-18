@@ -68,6 +68,7 @@ set_bash_prompt () {
         xterm-color) color_prompt=yes;;
         xterm-256color) color_prompt=yes;;
         screen*) color_prompt=yes;;
+        alacritty*) color_prompt=yes;;
     esac
 
     PS1=""
