@@ -114,11 +114,12 @@ defnonblock 5
 # screen -t monkey ssh monkey
 # screen -t mail 8 mutt
 # screen -t daemon 9 tail -f /var/log/daemon.log
-split
-resize max
-focusminsize max 20
-screen vim
-focus
-resize 7
-screen bash
-focus
+
+#split
+#resize max
+#focusminsize max 20
+#screen vim
+#focus
+#resize 7
+#screen bash
+#focus

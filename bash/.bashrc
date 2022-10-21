@@ -113,6 +113,9 @@ pathadd $GOPATH/bin
 
 # Enable completions for bash, git, kubectl etc
 test -f /usr/share/bash-completion/bash_completion && source /usr/share/bash-completion/bash_completion
+if type kubectl rg &> /dev/null; then
+    source <(kubectl completion bash)
+fi
 
 if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files' # integrate with ripgrep
