@@ -129,6 +129,8 @@ if &t_Co > 2 || has("gui_running")
 
 endif
 
+set listchars=tab:▸\ ,eol:¬,space:.
+
 " Section: Folding
 
 if has('folding')

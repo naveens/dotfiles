@@ -119,4 +119,9 @@ if type rg &> /dev/null; then
     export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
+# Local customized path and environment settings, etc.
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
+
 # vim: set expandtab:autoindent:tabstop=4:shiftwidth=4
