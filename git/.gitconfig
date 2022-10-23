@@ -25,3 +25,5 @@
 [core]
 	excludesfile = /home/nsivanandam/.gitignore_global
 	editor = vim
+[safe]
+	directory = /etc
