@@ -111,7 +111,18 @@ window:
 font:
   normal:
     family: Anonymous Pro
-  size: 14.0
+  size: 14
+  #normal:
+    #family: Spleen 8x16
+    #family: Spleen 12x24
+    #family: Greybeard 18px
+    #family: Lucida Typewriter
+    #family: Greybeard 22px
+  #size: 13 # Spleen 8x16
+  #size: 16.667 # Greybeard 22px
+  #size: 13.667 # Greybeard 18px
+  #size: 18.333 # Spleen 12x24
+  #size: 12 # Lucida Typewriter
   # Normal (roman) font face
   #normal:
     # Font family
@@ -384,7 +395,7 @@ selection:
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
 
-#cursor:
+cursor:
   # Cursor style
   #style:
     # Cursor shape
@@ -417,7 +428,7 @@ selection:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
@@ -880,33 +891,9 @@ selection:
   # Print all received window events.
   #print_events: false
 
-# Colors (Monokai Pro)
-colors:
-  # Default colors
-  primary:
-    background: '#2D2A2E'
-    foreground: '#FCFCFA'
-
-  # Normal colors
-  normal:
-    black:   '#403E41'
-    red:     '#FF6188'
-    green:   '#A9DC76'
-    yellow:  '#FFD866'
-    blue:    '#FC9867'
-    magenta: '#AB9DF2'
-    cyan:    '#78DCE8'
-    white:   '#FCFCFA'
-
-  # Bright colors
-  bright:
-    black:   '#727072'
-    red:     '#FF6188'
-    green:   '#A9DC76'
-    yellow:  '#FFD866'
-    blue:    '#FC9867'
-    magenta: '#AB9DF2'
-    cyan:    '#78DCE8'
-    white:   '#FCFCFA'
 key_bindings:
-  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: N,   mods: Control|Shift, action: SpawnNewInstance }
+
+import:
+  - ~/scratch/alacritty-theme/themes/hyper.yaml
+
