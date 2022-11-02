@@ -113,7 +113,7 @@ pathadd $GOPATH/bin
 
 # Enable completions for bash, git, kubectl etc
 test -f /usr/share/bash-completion/bash_completion && source /usr/share/bash-completion/bash_completion
-if type kubectl rg &> /dev/null; then
+if type kubectl &> /dev/null; then
     source <(kubectl completion bash)
 fi
 
@@ -127,4 +127,7 @@ if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 # vim: set expandtab:autoindent:tabstop=4:shiftwidth=4

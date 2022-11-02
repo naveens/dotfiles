@@ -27,3 +27,5 @@
 	editor = vim
 [safe]
 	directory = /etc
+[merge]
+	conflictStyle = diff3
