@@ -113,8 +113,16 @@ if &t_Co > 2 || has("gui_running")
 
     set hlsearch
 
+    " de-emphasize comments
+    highlight Comment ctermfg=Gray
+
     "if !has('gui_running') | set noicon background=dark | endif
 
+endif
+
+" 24-bit color
+if has("termguicolors")
+    set termguicolors
 endif
 
 set listchars=tab:▸\ ,eol:¬,space:.
@@ -209,6 +217,8 @@ if has("autocmd")
 
     autocmd FileType yaml,yaml.ansible setlocal autoindent tabstop=2
                                 \ softtabstop=2 shiftwidth=2 expandtab smarttab
+
+    autocmd BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
 
 endif
 

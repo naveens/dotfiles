@@ -77,7 +77,7 @@ set_bash_prompt () {
     PS1=""
 
     # Add exit code of last command if it's non-zero
-    test $EXIT -ne 0 && PS1="$PS1[$EXIT]"
+    test $EXIT -ne 0 && PS1="$PS1\[\e[41m\][$EXIT]\[\e[0m\] "
 
     # Add virtualenv if inside one
     test ! -z $VIRTUAL_ENV && PS1="$PS1(`basename \"$VIRTUAL_ENV\"`)"
@@ -91,7 +91,7 @@ set_bash_prompt () {
 
     # Add git status
     if type __git_ps1 &> /dev/null; then
-        PS1="$PS1$(__git_ps1)\n; "
+        PS1="$PS1$(__git_ps1)\n$ "
     fi
 
     # before setting command prompt, append last command to history file and load
