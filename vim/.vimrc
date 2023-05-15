@@ -11,6 +11,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+
 Plug 'notriddle/vim-gitcommit-markdown'
 
 Plug 'jpalardy/vim-slime'

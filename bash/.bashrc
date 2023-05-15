@@ -82,11 +82,18 @@ set_bash_prompt () {
     # Add virtualenv if inside one
     test ! -z $VIRTUAL_ENV && PS1="$PS1(`basename \"$VIRTUAL_ENV\"`)"
 
+    # Get kubernetes server if KUBECONFIG context is set
+    if [[ ! -z $KUBECONFIG &&
+            $(type -p kubectl &>/dev/null; echo $?) -eq 0 &&
+            $(type -p jq &>/dev/null; echo $?) -eq 0 ]] ; then
+        kserver=$(kubectl config view -ojson | jq '. as {clusters: $clusters, contexts: $contexts, "current-context":$cur} | $contexts[] | select(.name==$cur) | .context.cluster as $cluster | $clusters[] | select(.name==$cluster) | .cluster.server')
+    fi
+
     if [ "$color_prompt" = yes ] ; then
         # Enclose the ANSI escape codes in \[ and \] so bash knows they are non-printable
-        PS1="$PS1\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;33m\]\h\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]"
+        PS1="$PS1\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;33m\]\h\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\] \[\e[7;31m\]${kserver}\[\e[0m\]"
     else
-        PS1="$PS1\u@\h \w"
+        PS1="$PS1\u@\h \w $kserver"
     fi
 
     # Add git status
@@ -99,7 +106,7 @@ set_bash_prompt () {
     # current shell history list.
     history -a && history -n
 
-    unset color_prompt
+    unset color_prompt kserver
 }
 
 PROMPT_COMMAND=set_bash_prompt
